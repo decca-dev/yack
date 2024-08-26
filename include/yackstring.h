@@ -1,8 +1,8 @@
 #ifndef YACKSTRING_H
 #define YACKSTRING_H
 
-#define TRUE 0
-#define FALSE -1
+#define TRUE 1
+#define FALSE 0
 
 #define ASCII_a 97
 #define ASCII_b 98

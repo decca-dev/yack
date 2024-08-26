@@ -129,7 +129,7 @@ int ys_find(const char *source, const char *query)
 }
 
 // Check if given string ends with a specific string
-int ys_endsWith(const char *string, const char *query)
+bool ys_endsWith(const char *string, const char *query)
 {
   int string_len = strlen(string), query_len = strlen(query);
   if (string_len <= query_len)
@@ -138,11 +138,15 @@ int ys_endsWith(const char *string, const char *query)
     exit(EXIT_FAILURE);
   }
   // Compare the ys_sliced source string to the query;
-  return strcmp(ys_slice(string, string_len - query_len, string_len), query);
+  int comp = strcmp(ys_slice(string, string_len - query_len, string_len), query);
+  if (0 == comp)
+    return TRUE;
+  else
+    return FALSE;
 }
 
 // Check if given string starts with a specific string
-int ys_startsWith(const char *string, const char *query)
+bool ys_startsWith(const char *string, const char *query)
 {
   int string_len = strlen(string), query_len = strlen(query);
   if (string_len <= query_len)
@@ -151,7 +155,11 @@ int ys_startsWith(const char *string, const char *query)
     exit(EXIT_FAILURE);
   }
   // Compare the ys_sliced source string to the query;
-  return strcmp(ys_slice(string, 0, query_len - 1), query);
+  int comp = strcmp(ys_slice(string, 0, query_len - 1), query);
+  if (0 == comp)
+    return TRUE;
+  else
+    return FALSE;
 }
 
 // ys_reverse given string
