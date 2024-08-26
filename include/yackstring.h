@@ -92,9 +92,9 @@ char *ys_toLowerCase(const char *string);
 
 int ys_find(const char *source, const char *query);
 
-int ys_endsWith(const char *string, const char *query);
+bool ys_endsWith(const char *string, const char *query);
 
-int ys_startsWith(const char *string, const char *query);
+bool ys_startsWith(const char *string, const char *query);
 
 char *ys_reverse(const char *string);
 
